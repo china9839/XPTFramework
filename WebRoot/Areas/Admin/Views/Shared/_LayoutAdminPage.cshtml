@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/jquery.form.js"></script>
+    <link href="~/Scripts/plugs/pintuer/pintuer.css" rel="stylesheet" />
+    <script src="~/Scripts/plugs/pintuer/pintuer.js"></script>
+    <script src="~/Scripts/plugs/pintuer/respond.js"></script>
+    <link href="~/Scripts/plugs/iPath1/iPath.css" rel="stylesheet" />
+    <script src="~/Scripts/plugs/iPath1/iPath.js"></script>
+    <title>@ViewBag.Title</title>
+    <script type="text/javascript">
+        var contextUri = '@Href("~")';
+        contextUri = contextUri == '/' ? '' : contextUri;
+        contextUri = contextUri[contextUri.length - 1] == '/' ? contextUri.substring(0, contextUri.length - 1) : contextUri;
+    </script>
+    <style type="text/css">
+        body, html {
+            height: auto;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

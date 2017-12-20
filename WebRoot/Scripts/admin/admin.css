@@ -1,0 +1,122 @@
+﻿*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box; }
+li, ul{padding: 0;margin: 0;list-style: none;width: 100%; overflow: hidden;}
+
+body, html
+{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: "Helvetica Neue",Helvetica Neue,Helvetica,Arial,Hiragino Sans GB,Microsoft Yahei,sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+}
+.layout
+{
+    width: 100%;
+    height: 100%;
+    background-color: #3C4857;
+    position: relative;
+}
+.layout_title
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 70px;
+}
+    .layout_title .logo
+    {
+        float: left;
+        margin: 20px 0 0 60px;
+        width: 70px;
+        height: 70px;
+        background: url(/Images/meeting.png) no-repeat 50% 50%;
+        background-size: 100%;
+        border-radius: 5px;
+    }
+    .layout_title .sysname
+    {
+        float: left;
+        margin: 20px 0 0 20px;
+        vertical-align: text-top;
+        font-size: 28px;
+        line-height: 28px;
+        font-weight: 400;
+        color: #fff;
+    }
+.layout_left
+{
+    position: absolute;
+    top: 130px;
+    left: 0px;
+    bottom: 0px;
+    width: 150px;
+    font-size: 16px;
+}
+    .layout_left .menu > li
+    {
+        border-top: 1px solid #4f5a68;
+        border-bottom: 1px solid #2e3844;
+    }
+    .layout_left .menuname
+    {
+        cursor: pointer;
+        padding: 10px 10px 10px 30px;
+        color: #929ca8;
+        display: block;
+    }
+        .layout_left .menuname:hover
+        {
+            background-color: #2F4561;
+            color: #4a90e2;
+        }
+    .layout_left .checked
+    {
+        padding-left: 25px;
+        border-left: 5px solid #4a90e2;
+        color: #4a90e2;
+        background-color: #333d4a;
+    }
+    .layout_left .children
+    {
+        display: none;
+    }
+        .layout_left .children .menuname
+        {
+            border: none;
+            padding-left: 50px;
+            font-size: 14px;
+        }
+        .layout_left .children .checked
+        {
+            padding-left: 50px;
+            background-color: #3C4857;
+        }
+
+    
+
+.layout_main {
+    position: absolute;
+    top: 70px;
+    left: 150px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #FFFFFF;
+}
+    .layout_main #main_frame {
+        width: 100%;
+        height: 100%;
+    }
+
+.systoolbar {
+    margin: 10px;
+    text-align: right;
+    color: #fff;
+}
+    .systoolbar label {
+        cursor: pointer;
+    }
+        .systoolbar label a {
+            color: #fff;
+        }

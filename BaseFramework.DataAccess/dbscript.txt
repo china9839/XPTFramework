@@ -1,0 +1,22 @@
+﻿use IPathDB
+go
+CREATE TABLE [dbo].[T_AdminUser](
+	[id] [uniqueidentifier] NOT NULL,
+	[UserName] [varchar](255) NOT NULL,
+	[Pwz] [varchar](255) NOT NULL,
+	[PermissionInfo] [varchar](4000) NULL,
+	[Remark] [nvarchar](2000) NULL,
+	[CreateDate] [datetime] NOT NULL,
+	[Creator] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+INSERT [dbo].[T_AdminUser] ([id], [UserName], [Pwz], [PermissionInfo], [Remark], [CreateDate], [Creator]) VALUES (N'00000000-0000-0000-0000-000000000001', N'user01.admin', N'i/0z9LkIcOrxJAw0UjQd0w==', N'function|function_001|function_002|basdata|basdata_001|basdata_002|basdata_003|sysconfig|sysconfig_001|', NULL, CAST(0x0000A6D600F0DDB8 AS DateTime), N'system')
+INSERT [dbo].[T_AdminUser] ([id], [UserName], [Pwz], [PermissionInfo], [Remark], [CreateDate], [Creator]) VALUES (N'f5ee18e7-8bac-47a6-b81f-665587297cf1', N'admin005', N'YydTguUCF5nsb/7vTNJe6Q==', N'|basdata|basdata_001|basdata_002|basdata_003', NULL, CAST(0x0000A6D60109C83C AS DateTime), N'admin')
+INSERT [dbo].[T_AdminUser] ([id], [UserName], [Pwz], [PermissionInfo], [Remark], [CreateDate], [Creator]) VALUES (N'8587fe40-a861-43b4-8b9d-6e2c41d39bc4', N'admin001', N'i/0z9LkIcOrxJAw0UjQd0w==', N'|basdata|basdata_003|sysconfig|sysconfig_001', NULL, CAST(0x0000A6D600F30B88 AS DateTime), N'admin')
+INSERT [dbo].[T_AdminUser] ([id], [UserName], [Pwz], [PermissionInfo], [Remark], [CreateDate], [Creator]) VALUES (N'7ff68732-64ba-4f57-97b7-b5381ef06450', N'admin004', N'rz/0eIhtuNt8VIe4HWZ1rg==', N'|sysconfig|sysconfig_001', NULL, CAST(0x0000A6D601064B44 AS DateTime), N'admin')

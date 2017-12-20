@@ -1,0 +1,5 @@
+﻿.ztree li span.demoIcon{padding:0 2px 0 10px;}
+.ztree li span.button.del{margin:0; background: url(diy/del.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.edit{margin:0; background: url(diy/edit.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+
+

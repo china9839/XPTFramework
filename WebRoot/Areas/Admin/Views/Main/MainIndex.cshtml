@@ -1,0 +1,133 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link  href="~/Scripts/plugs/pintuer/pintuer.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugs/pintuer/pintuer.js"></script>
+    <script  type="text/javascript" src="~/Scripts/plugs/pintuer/respond.js"></script>
+    <link href="~/Scripts/plugs/iPath1/iPath.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/plugs/iPath1/iPath.js"></script>
+    <link href="~/Scripts/admin/admin.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/admin/admin.js"></script>
+    <title>微信会议后台管理</title>
+    <script type="text/javascript">
+        var contextUri = '@Href("~")';
+        contextUri = contextUri == '/' ? '' : contextUri;
+
+        function showLoading() {
+            iPath.LodingMask();
+        }
+
+        function hideLoading() {
+            iPath.UnLodingMask();
+        }
+
+        if (top.location != self.location)
+            top.location = self.location;
+    </script>
+    <script type="text/javascript">
+
+        $(function () {
+            $('#btnChangePwd').click(function () {
+                $showdialogForUrl(
+                    {
+                        title: '修改密码',
+                        width: '450px',
+                        height: '350px',
+                        url: contextUri + '/Admin/Main/ChangePwd',
+                        pageid: 'pwd',
+                        buttons: [
+                            {
+                                cls: 'button bg-green',
+                                txt: '保存',
+                                handler: function (e) { window.top.c_pwd.window.btnOKClick(e); }
+                            },
+                            {
+                                cls: 'button',
+                                txt: '取消',
+                                handler: function (e) { e.close(); }
+                            }
+                        ]
+
+                    }
+                );
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <div class="layout_title">
+            <div class="logo"></div>
+            <div class="sysname">微信会议后台管理</div>
+            <div class="systoolbar">
+                欢迎您： @Session[BaseFramework.Common.ConstantHelper.CURRENTADMINUSER]
+                <label id="btnChangePwd">修改密码</label> |
+                <label><a href="@Href("~/Admin/Main/Login")">退出</a></label>
+            </div>
+        </div>
+        <div class="layout_left">
+            <ul class="menu">
+                @if (Html.HasPermission("basdata"))
+                {
+                    <li>
+                        <a class="menuname">基础数据</a>
+                        <div class="children">
+                            <ul>
+                                @if (Html.HasPermission("basdata_001"))
+                                {
+                                    <li>
+                                        <a class="menuname" target="main_frame" href="javascript:void(0)">基础数据1</a>
+                                    </li>
+                                }
+                                @if (Html.HasPermission("basdata_002"))
+                                {
+                                    <li>
+                                        <a class="menuname" target="main_frame" href="javascript:void(0)">基础数据2</a>
+                                    </li>
+                                }
+                                @if (Html.HasPermission("basdata_003"))
+                                {
+                                    <li>
+                                        <a class="menuname" target="main_frame" href="javascript:void(0)">基础数据3</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                }
+                @if (Html.HasPermission("sysconfig"))
+                {
+                    <li>
+                        <a class="menuname">系统配置</a>
+                        <div class="children">
+                            <ul>
+                                @if(Html.HasPermission("sysconfig_001"))
+                                {
+                                <li>
+                                    <a class="menuname" target="main_frame" href="@Href("~/Admin/Account/AccountIndex")">后台账户</a>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                }
+                
+            </ul>
+        </div>
+        <div class="layout_main" _current_panel_id="">
+            <iframe id="main_frame" name="main_frame" frameborder="no" border="0" marginwidth="0" marginheight="0"
+                    src=""></iframe>
+        </div>
+    </div>
+</body>
+</html>

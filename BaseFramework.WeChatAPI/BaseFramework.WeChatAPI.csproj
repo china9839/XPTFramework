@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18B49F87-0033-487B-853D-7FCAB0574BC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WeChatAPI</RootNamespace>
+    <AssemblyName>WeChatAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseAPI.cs" />
+    <Compile Include="BusinessBaseException.cs" />
+    <Compile Include="Entity\AgentGetRes.cs" />
+    <Compile Include="Entity\AgentListRes.cs" />
+    <Compile Include="Entity\Articles.cs" />
+    <Compile Include="Entity\BaseRes.cs" />
+    <Compile Include="Entity\BatchGetResultRes.cs" />
+    <Compile Include="Entity\BatchRes.cs" />
+    <Compile Include="Entity\Button.cs" />
+    <Compile Include="Entity\DeptCreateRep.cs" />
+    <Compile Include="Entity\DeptListRes.cs" />
+    <Compile Include="Entity\EnumUploadType.cs" />
+    <Compile Include="Entity\GetCallBackIpRes.cs" />
+    <Compile Include="Entity\GetTokenRes.cs" />
+    <Compile Include="Entity\InviteSendRes.cs" />
+    <Compile Include="Entity\MediaGetRes.cs" />
+    <Compile Include="Entity\MediaUploadRes.cs" />
+    <Compile Include="Entity\MenuGetRes.cs" />
+    <Compile Include="Entity\MessageSend.cs" />
+    <Compile Include="Entity\MessageSendRes.cs" />
+    <Compile Include="Entity\TagAddtagUsersRes.cs" />
+    <Compile Include="Entity\TagCreateRes.cs" />
+    <Compile Include="Entity\TagGetRes.cs" />
+    <Compile Include="Entity\TagListRes.cs" />
+    <Compile Include="Entity\UserConvertToOpenidRes.cs" />
+    <Compile Include="Entity\UserGetRes.cs" />
+    <Compile Include="Entity\UserGetUserInfoRes.cs" />
+    <Compile Include="Entity\UserListRes.cs" />
+    <Compile Include="Entity\UserSimpleListRes.cs" />
+    <Compile Include="iUtil\AESHelper.cs" />
+    <Compile Include="iUtil\StringHelper.cs" />
+    <Compile Include="iUtil\ThreadWebClientFactory.cs" />
+    <Compile Include="iUtil\TimeoutWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MpAPI.cs" />
+    <Compile Include="MpEntity\CardExt.cs" />
+    <Compile Include="MpEntity\CustomSend.cs" />
+    <Compile Include="MpEntity\Custom_SendRes.cs" />
+    <Compile Include="MpEntity\DatacubeParams.cs" />
+    <Compile Include="MpEntity\Datacube_GetarticlesummaryRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetarticletotalRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetinterfacesummaryhourRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetinterfacesummaryRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgdistmonthRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgdistRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgdistweekRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsghourRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgmonthRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetupstreammsgweekRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetuserreadhourRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetuserreadRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetusersharehourRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetusershareRes.cs" />
+    <Compile Include="MpEntity\Datacube_GetusersummaryRes.cs" />
+    <Compile Include="MpEntity\Group.cs" />
+    <Compile Include="MpEntity\Groups_CreateRes.cs" />
+    <Compile Include="MpEntity\Groups_GetidRes.cs" />
+    <Compile Include="MpEntity\Groups_GetRes.cs" />
+    <Compile Include="MpEntity\KfAccount_GetkflistRes.cs" />
+    <Compile Include="MpEntity\MassSend.cs" />
+    <Compile Include="MpEntity\Mass_GetRes.cs" />
+    <Compile Include="MpEntity\Mass_SendallRes.cs" />
+    <Compile Include="MpEntity\Media_UploadimgRes.cs" />
+    <Compile Include="MpEntity\Media_UploadnewsRes.cs" />
+    <Compile Include="MpEntity\Qrcode_CreateRes.cs" />
+    <Compile Include="MpEntity\ShorturlRes.cs" />
+    <Compile Include="MpEntity\Template.cs" />
+    <Compile Include="MpEntity\Template_Api_add_templateRes.cs" />
+    <Compile Include="MpEntity\Template_SendRes.cs" />
+    <Compile Include="MpEntity\UploadVideoRes.cs" />
+    <Compile Include="MpEntity\User_GetRes.cs" />
+    <Compile Include="MpEntity\User_InfoRes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QyAPI.cs" />
+    <Compile Include="QyApiHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

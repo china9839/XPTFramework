@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Permission>
+  <p name="系统功能" value="function">
+    <p name="会议管理" value="function_001"></p>
+    <p name="抢单管理" value="function_002"></p>
+  </p>
+  <p name="基础数据" value="basdata">
+    <p name="区域管理" value="basdata_001"></p>
+    <p name="医疗机构" value="basdata_002"></p>
+    <p name="讲题范围" value="basdata_003"></p>
+  </p>
+  <p name="系统配置" value="sysconfig">
+    <p name="后台帐号" value="sysconfig_001"></p>
+  </p>
+</Permission>

@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "后台账户";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
+}
+
+<script type="text/javascript">
+    var pdg;
+    $(function () {
+        pdg = $('#admin_dataTable').iPathDataGrid({ url: contextUri + '/Admin/Account/LoadData', paging: true });
+        pdg.QueryParams = function () {
+
+            return {};
+        }
+        pdg.Load();
+
+        $('#admin_btnLoad').bind('click', function () {
+            pdg.Load();
+        });
+
+        $('#admin_btnEdit').bind('click', function () {
+            Edit();
+        });
+
+    });
+
+    function Load() {
+        pdg.Load();
+    }
+    var adminid = '00000000-0000-0000-0000-000000000001';
+
+    function ResetPwd(id) {
+        if (id == adminid) {
+            $showdialog({ body: '内置账户不可修改' });
+            return;
+        }
+
+        $showdialogForConfim(
+            {
+                title: '确认重置密码',
+                body: '重置密码后无法恢复，您确定要重置密码吗？',
+                ok: function () {
+                    $.PintuerPost(contextUri + '/Admin/Admin/ResetPwd', { id: id }, function (d) {
+                        $showdialog({ title: '操作成功', body: '密码重置成功，新密码：' + d.data + ', 请及时修改'});
+                    });
+                }
+            }
+        );
+
+    }
+
+    function Edit(id) {
+        if (id == adminid) {
+            $showdialog({ body: '内置账户不可修改' });
+            return;
+        }
+
+        id = id == undefined ? '' : "/"+id;
+        $showdialogForUrl(
+            {
+                title: '管理员账户',
+                width: '500px',
+                height: '600px',
+                url: contextUri + '/Admin/Account/AccountInfo' + id,
+                pageid: 'admin',
+                buttons: [
+                    {
+                        cls: 'button bg-green',
+                        txt: '保存',
+                        handler: function (e) { window.top.c_admin.window.btnOKClick(e, function () { Load(); }); }
+                    },
+                    {
+                        cls: 'button',
+                        txt: '取消',
+                        handler: function (e) { e.close(); }
+                    }
+                ]
+
+            }
+        );
+    }
+
+    function Delete(id) {
+        if (id == adminid) {
+            $showdialog({ body: '内置账户不可修改' });
+            return;
+        }
+
+        $showdialogForConfim(
+            {
+                title: '确认删除',
+                body: '删除后无法恢复，您确定要删除吗？',
+                ok: function () {
+                    $.PintuerPost(contextUri + '/Admin/Account/Remove', { id: id }, function () {
+                        Load();
+                    });
+                }
+            }
+        );
+
+    }
+</script>
+
+<div class="tool_bar">
+    <label>后台账户</label>
+</div>
+<div class="main_view">
+
+    <div style="margin: 20px;" class="panel admin-panel">
+
+        <div class="padding border-bottom inline">
+            <div>
+                <button class="button button-small bg-main icon-refresh" id="admin_btnLoad"> 刷新</button>
+                <button class="button button-small bg-blue icon-file-o" id="admin_btnEdit"> 添加</button>
+            </div>
+        </div>
+        <table id="admin_dataTable" class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="text-align:center; width:50px;">
+                        <input type="checkbox" />
+                    </th>
+                    <th style="min-width:130px; width:130px;">用户名</th>
+                    <th style="width:170px;">时间</th>
+                    <th style="width:210px;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="center"><input type="checkbox" name="id" value="${dr.id}$"></td>
+                    <td>${dr.UserName}$</td>
+                    <td>${jsonDateFormat(dr.CreateDate)}$</td>
+                    <td>
+                        <button class="button border-blue button-little icon-edit" onclick="Edit('${dr.id}$')"> 修改</button>
+                        <button class="button border-yellow button-little icon-trash-o" onclick="Delete('${dr.id}$')"> 删除</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10" class="paging"></td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <title>Index</title>
+    <script type="text/javascript">
+        var editor = null;
+        $(document).ready(function () {
+            editor = CKEDITOR.replace('content');
+            $("#bt_save").click(function () {
+                editor.updateElement();
+                var editData = editor.getData();
+                alert(editData);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="width:100%;"> 
+        <textarea id="content" name="content" cols="20" rows="2" class="ckeditor"></textarea>
+        <input type="button" value="保存" id="bt_save" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "ChangePwd";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
+}
+<script type="text/javascript">
+
+    function btnOKClick(e, callback) {
+        var post =
+            {
+                old_pwd: $('#pwd_old').val(),
+                new_pwd: $('#pwd_new1').val(),
+                new_pwd2: $('#pwd_new2').val()
+            };
+
+
+        var validateRel = $validateForm('pwd_form0');
+        if (!validateRel) {
+            return;
+        }
+        if (post.new_pwd == post.old_pwd) {
+            $showdialog({ body: "新旧密码不可相同，请重新输入" });
+            return;
+        }
+        if (post.new_pwd != post.new_pwd2) {
+            $showdialog({ body: "两次输入的新密码不一致，请重新输入" });
+            return;
+        }
+
+
+        $.PintuerPost(contextUri + '/Admin/Main/ChangePwd', post,
+            function (data) {
+                $showdialog({ body: "修改成功" });
+                if (callback != undefined) {
+                    callback();
+                }
+                e.close();
+
+            },
+            function (data) {
+                $showdialog({ body: "请输入正确的旧密码" });
+            });
+    }
+
+</script>
+<div style="margin: 10px;">
+    <form method="post" id="pwd_form0">
+        <div class="form-group">
+            <div class="label">
+                <label for="pwd_old">旧密码</label>
+            </div>
+            <div class="field">
+                <input type="password" class="input" id="pwd_old" size="20" data-validate="required:必填" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="label">
+                <label for="pwd_new1">新密码</label>
+            </div>
+            <div class="field">
+                <input type="password" class="input" id="pwd_new1" size="20" data-validate="required:必填" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="label">
+                <label for="pwd_new2">确认新密码</label>
+            </div>
+            <div class="field">
+                <input type="password" class="input" id="pwd_new2" size="20" data-validate="required:必填" />
+            </div>
+        </div>
+    </form>
+</div>
