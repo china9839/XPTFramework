@@ -5,6 +5,7 @@
     box-shadow: 1px 1px 1px #dedede;
     border: 1px solid #dedede;
     position: relative;
+    min-width:800px;
 }
 
 .surveybody {
@@ -15,6 +16,7 @@
     text-align: center;
     border-top: 0px solid #dedede;
     width: 100%;
+    margin:15px 0 0 0;
 }
 
     .surveytoolbar button {

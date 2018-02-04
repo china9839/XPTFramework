@@ -5,7 +5,7 @@
 <link href="~/Scripts/plugs/pintuer/pintuer.css" rel="stylesheet" />
 <script src="~/Scripts/plugs/pintuer/pintuer.js"></script>
 <script src="~/Scripts/plugs/pintuer/respond.js"></script>
-<link href="~/Scripts/plugs/survey/survey.css" rel="stylesheet" />
+<link href="~/Scripts/plugs/survey/survey.css?v=1122" rel="stylesheet" />
 <script src="~/Scripts/plugs/survey/survey.js"></script>
 <script type="text/javascript">
     var jsonData = { "Description": "", "pass": true, "Question": [{ "Index": 0, "Type": "(单选)", "Subject": "3", "Right": "", "Option": [{ "Index": "A", "Text": "3" }] }, { "Index": 1, "Type": "(问答)", "Subject": "3", "Right": "", "Option": [] }] };
@@ -14,8 +14,8 @@
     $(document).ready(function () {
         surveyobj =  $('.surveycontext').initsurvey({
             datainfo: '',//初始化调研的数据项
-            hasanswer: true,//问题是否有答案。有答案的情况下
-            showtoolbar: false,//是否显示工具栏对象
+            hasanswer: false,//问题是否有答案。有答案的情况下
+            showtoolbar: true,//是否显示工具栏对象
             description: '自定义调查问卷'//调查问卷结构description值
         });
     });
