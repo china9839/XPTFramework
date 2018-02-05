@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Scripts/plugs/pintuer/pintuer.css" rel="stylesheet" />
+<script src="~/Scripts/plugs/pintuer/pintuer.js"></script>
+<script src="~/Scripts/plugs/pintuer/respond.js"></script>
+<link href="~/Scripts/plugs/survey/survey.css?v=1122" rel="stylesheet" />
+<script src="~/Scripts/plugs/survey/survey.js"></script>
+<script type="text/javascript">
+    var jsonData = { "Description": "", "pass": true, "Question": [{ "Index": 0, "Type": "(单选)", "Subject": "3", "Right": "", "Option": [{ "Index": "A", "Text": "3" }] }, { "Index": 1, "Type": "(问答)", "Subject": "3", "Right": "", "Option": [] }] };
+    var jstr = JSON.stringify(jsonData);
+    var surveyobj;
+    $(document).ready(function () {
+        surveyobj =  $('.surveycontext').initsurvey({
+            datainfo: '',//初始化调研的数据项
+            hasanswer: false,//问题是否有答案。有答案的情况下
+            showtoolbar: true,//是否显示工具栏对象
+            description: '自定义调查问卷'//调查问卷结构description值
+        });
+    });
+
+    //获得调查问卷结构数据
+    function getsurveyresult() {
+        var sResult = surveyobj.getsurveydata();
+        if (sResult.pass)//验证调研控件所有input不为空通过
+        {
+
+        }
+        else {
+            alert('调查问卷项不能为空');
+        }
+        console.log(JSON.stringify(sResult));
+    }
+</script>
+<div style="min-height:300px;border:1px solid #ff0000;display:block;">
+    @{
+        Html.RenderPartial("SurverPartialPage", null);
+    }
+</div>
+
+<div>
+    <a href="javascript:getsurveyresult();">getsurveyresult</a>
+</div>

@@ -187,6 +187,7 @@
     <Compile Include="Controllers\ErrorHomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OAuth2Controller.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -785,6 +786,8 @@
     <Content Include="Scripts\plugs\route\director.js" />
     <Content Include="Scripts\plugs\route\director.min.js" />
     <Content Include="Scripts\plugs\route\ender.js" />
+    <Content Include="Scripts\plugs\survey\survey.css" />
+    <Content Include="Scripts\plugs\survey\survey.js" />
     <Content Include="Scripts\plugs\ztree\css\awesomeStyle\awesome.css" />
     <Content Include="Scripts\plugs\ztree\css\awesomeStyle\img\loading.gif" />
     <Content Include="Scripts\plugs\ztree\css\demo.css" />
@@ -952,6 +955,8 @@
     <Content Include="Scripts\mobiscroll\v3\css\icons_mobiscroll.woff" />
     <Content Include="Scripts\mobiscroll\v3\license\EULA.pdf" />
     <Content Include="Views\Shared\AuthError.cshtml" />
+    <Content Include="Views\Shared\SurverPartialPage.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
