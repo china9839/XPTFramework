@@ -182,6 +182,7 @@
     <Compile Include="Code\AdminSessionFilter.cs" />
     <Compile Include="Code\CustomHandleErrorAttribute.cs" />
     <Compile Include="Code\MVCExtends.cs" />
+    <Compile Include="Code\PermissionFilter.cs" />
     <Compile Include="Code\WxSessionFilter.cs" />
     <Compile Include="Controllers\ErrorHomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

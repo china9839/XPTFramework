@@ -23,7 +23,7 @@ namespace WebRoot
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             LogHelper.Init();
-            QyApiHandler.Init(ConfigManger.CorpID, ConfigManger.Secret, ConfigManger.agentid);
+            //QyApiHandler.Init(ConfigManger.CorpID, ConfigManger.Secret, ConfigManger.agentid);
             this.InitPermission();   
         }
 
